@@ -11,8 +11,10 @@ import re        # Regular Expression
 
 
 # Bot token to use
-Token = "8051776869:AAGFOiZ8xEcqgnQ4VnXzVv1oNMOZBy72ytM"
+Token = os.getenv("BOT_TOKEN")
 
+if not Token:
+    raise RuntimeError("BOT_TOKEN is not set")
 
 # Decode and format MIME mail
 def Decode_MIME(mime_message: str) -> str:
